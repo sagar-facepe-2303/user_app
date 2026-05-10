@@ -1,4 +1,5 @@
 import CvvInfoIcon from '@/components/CvvInfoIcon';
+import PciDssBadge from '@/components/PciDssBadge';
 import ShieldIcon from '@/components/ShieldIcon';
 import React from 'react';
 import {
@@ -30,9 +31,7 @@ export default function AddCardModal({ visible, onClose }: Props) {
               <View style={styles.handleBar} />
             </Pressable>
 
-            <View style={styles.certBadge}>
-              <Text style={styles.certText}>PCI/DSS certified for secure transactions.</Text>
-            </View>
+            <PciDssBadge />
 
             <Text style={styles.title}>Fill your card details </Text>
 
@@ -118,25 +117,6 @@ const styles = StyleSheet.create({
     height: 4,
     backgroundColor: '#E0E0E0',
     borderRadius: 2,
-  },
-  certBadge: {
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
-    alignSelf: 'center',
-    paddingVertical: 5,
-    paddingHorizontal: 8,
-    borderRadius: 4,
-    borderBottomWidth: 1,
-    borderBottomColor: '#5F15EE',
-    backgroundColor: '#F3F3FF',
-    marginBottom: 20,
-    width: 239,
-  },
-  certText: {
-    color: '#5F15EE',
-    fontSize: 12,
-    fontWeight: '500',
   },
   title: {
     fontSize: 20,
