@@ -1,4 +1,5 @@
 import AddCardIcon from '@/components/AddCardIcon';
+import AddCardModal from '@/components/AddCardModal';
 import CardsIcon from '@/components/CardsIcon';
 import FaceGraphic from '@/components/FaceGraphic';
 import GlanceIcon from '@/components/GlanceIcon';
@@ -60,6 +61,7 @@ const CARDS: CardData[] = [
 
 export default function YourCardsScreen() {
   const [index, setIndex] = useState(0);
+  const [showAddCardModal, setShowAddCardModal] = useState(false);
   const listRef = useRef<FlatList<CardData>>(null);
 
   const onScroll = (e: NativeSyntheticEvent<NativeScrollEvent>) => {
@@ -114,7 +116,7 @@ export default function YourCardsScreen() {
               </View>
               <Text style={s.actionText}>Review Auto pay</Text>
             </Pressable>
-            <Pressable style={s.actionBtn}>
+            <Pressable style={s.actionBtn} onPress={() => setShowAddCardModal(true)}>
               <View style={s.actionIconWrap}>
                 <AddCardIcon size={20} />
               </View>
@@ -168,6 +170,8 @@ export default function YourCardsScreen() {
           </Pressable>
         </View>
       </View>
+
+      <AddCardModal visible={showAddCardModal} onClose={() => setShowAddCardModal(false)} />
     </SafeAreaView>
   );
 }
