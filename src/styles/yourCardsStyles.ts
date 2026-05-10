@@ -226,6 +226,8 @@ export const yourCardsStyles = StyleSheet.create({
     flexDirection: 'row',
     gap: 14,
     overflow: 'hidden',
+    width: 353,
+    height: 138,
   },
   featureIconWrap: {
     width: 48,
@@ -251,7 +253,7 @@ export const yourCardsStyles = StyleSheet.create({
   },
   featureGraphic: {
     position: 'absolute',
-    right: 0,
+    right: 12,
     bottom: 0,
   },
 

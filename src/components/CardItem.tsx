@@ -1,3 +1,4 @@
+import EyeIcon from '@/components/EyeIcon';
 import { LinearGradient } from 'expo-linear-gradient';
 import React from 'react';
 import { Text, View } from 'react-native';
@@ -45,7 +46,7 @@ export default function CardItem({ data }: { data: CardData }) {
           <View>
             <View style={s.amountLeft}>
               <Text style={s.amount}>{data.amount}</Text>
-              <Text style={s.eye}>👁</Text>
+              <EyeIcon size={18} />
             </View>
             <Text style={s.subLabel}>Utilised this month</Text>
           </View>
