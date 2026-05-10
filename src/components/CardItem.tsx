@@ -1,6 +1,6 @@
+import { LinearGradient } from 'expo-linear-gradient';
 import React from 'react';
 import { Text, View } from 'react-native';
-import { LinearGradient } from 'expo-linear-gradient';
 import { yourCardsStyles as s } from '../styles/yourCardsStyles';
 
 export type CardData = {
@@ -20,11 +20,10 @@ export default function CardItem({ data }: { data: CardData }) {
     <View style={s.cardWrapper}>
       {/* Top gradient section */}
       <LinearGradient
-        // approximates linear-gradient(17deg, #F3F3FF -99.51%, #BAB8FE -14.68%, #EAE9FE 70.16%)
         colors={['#F3F3FF', '#BAB8FE', '#EAE9FE']}
-        locations={[0, 0.35, 1]}
-        start={{ x: 0.15, y: 1 }}
-        end={{ x: 0.85, y: 0 }}
+        locations={[0, 0.4, 1]}
+        start={{ x: 0.2, y: 1 }}
+        end={{ x: 0.8, y: 0 }}
         style={s.cardTop}
       >
         <View style={s.cardTopRow}>

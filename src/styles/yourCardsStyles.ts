@@ -7,11 +7,11 @@ export const CARD_GAP = 12;
 export const yourCardsStyles = StyleSheet.create({
   safe: {
     flex: 1,
-    backgroundColor: colors.background,
+    backgroundColor: '#fff',
   },
   container: {
     flex: 1,
-    backgroundColor: colors.background,
+    backgroundColor: '#fff',
   },
   scrollContent: {
     paddingBottom: 24,
@@ -54,7 +54,8 @@ export const yourCardsStyles = StyleSheet.create({
     width: CARD_WIDTH,
   },
   cardTop: {
-    borderRadius: 16,
+    borderTopLeftRadius: 16,
+    borderTopRightRadius: 16,
     borderWidth: 1,
     borderColor: colors.cardBorder,
     padding: 16,
@@ -190,10 +191,8 @@ export const yourCardsStyles = StyleSheet.create({
   actionBtn: {
     flex: 1,
     height: 56,
-    borderRadius: 14,
-    backgroundColor: colors.surface,
-    borderWidth: 1,
-    borderColor: '#EFEFEF',
+    borderRadius: 12,
+    backgroundColor: '#F3F3FF',
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
@@ -220,17 +219,17 @@ export const yourCardsStyles = StyleSheet.create({
   },
   featureCard: {
     backgroundColor: colors.surface,
-    borderRadius: 16,
+    borderRadius: 12,
     borderWidth: 1,
-    borderColor: '#EFEFEF',
+    borderColor: '#EAE9FE',
     padding: 16,
     flexDirection: 'row',
     gap: 14,
     overflow: 'hidden',
   },
   featureIconWrap: {
-    width: 44,
-    height: 44,
+    width: 48,
+    height: 48,
     borderRadius: 12,
     backgroundColor: colors.primarySoft,
     alignItems: 'center',
@@ -240,15 +239,20 @@ export const yourCardsStyles = StyleSheet.create({
     flex: 1,
   },
   featureTitle: {
-    color: colors.textPrimary,
-    fontSize: 15,
+    color: '#171A1F',
+    fontSize: 14,
     fontWeight: '700',
   },
   featureDesc: {
-    color: colors.textSecondary,
-    fontSize: 13,
-    fontWeight: '500',
+    color: '#808080',
+    fontSize: 12,
+    fontWeight: '400',
     marginTop: 2,
+  },
+  featureGraphic: {
+    position: 'absolute',
+    right: 0,
+    bottom: 0,
   },
 
   // Tab bar

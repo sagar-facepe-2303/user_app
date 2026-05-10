@@ -1,3 +1,9 @@
+import AddCardIcon from '@/components/AddCardIcon';
+import FaceGraphic from '@/components/FaceGraphic';
+import GlanceIcon from '@/components/GlanceIcon';
+import IdentityIcon from '@/components/IdentityIcon';
+import ReviewIcon from '@/components/ReviewIcon';
+import ShieldGraphic from '@/components/ShieldGraphic';
 import React, { useRef, useState } from 'react';
 import {
   FlatList,
@@ -101,14 +107,14 @@ export default function YourCardsScreen() {
           {/* Action buttons */}
           <View style={s.actionsRow}>
             <Pressable style={s.actionBtn}>
-              <View style={[s.actionIconWrap, { backgroundColor: colors.primarySoft }]}>
-                <Text style={{ color: colors.primary, fontWeight: '700' }}>↻</Text>
+              <View style={s.actionIconWrap}>
+                <ReviewIcon size={20} />
               </View>
               <Text style={s.actionText}>Review Auto pay</Text>
             </Pressable>
             <Pressable style={s.actionBtn}>
-              <View style={[s.actionIconWrap, { backgroundColor: colors.primarySoft }]}>
-                <Text style={{ color: colors.primary, fontWeight: '700' }}>＋</Text>
+              <View style={s.actionIconWrap}>
+                <AddCardIcon size={20} />
               </View>
               <Text style={s.actionText}>Add new card</Text>
             </Pressable>
@@ -118,7 +124,7 @@ export default function YourCardsScreen() {
           <View style={s.featureList}>
             <View style={s.featureCard}>
               <View style={s.featureIconWrap}>
-                <Text style={{ color: colors.primary, fontWeight: '700' }}>🛡</Text>
+                <IdentityIcon size={24} />
               </View>
               <View style={s.featureBody}>
                 <Text style={s.featureTitle}>Identity management</Text>
@@ -126,11 +132,12 @@ export default function YourCardsScreen() {
                   You linked 3 cards to your{'\n'}biometric profile for safety.
                 </Text>
               </View>
+              <ShieldGraphic style={s.featureGraphic} />
             </View>
 
             <View style={s.featureCard}>
               <View style={s.featureIconWrap}>
-                <Text style={{ color: colors.primary, fontWeight: '700' }}>⌖</Text>
+                <GlanceIcon size={24} />
               </View>
               <View style={s.featureBody}>
                 <Text style={s.featureTitle}>Glance to Pay</Text>
@@ -138,6 +145,7 @@ export default function YourCardsScreen() {
                   Secure payments in seconds{'\n'}with your face.
                 </Text>
               </View>
+              <FaceGraphic style={s.featureGraphic} />
             </View>
           </View>
         </ScrollView>
