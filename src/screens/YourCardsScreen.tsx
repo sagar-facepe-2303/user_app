@@ -1,9 +1,12 @@
 import AddCardIcon from '@/components/AddCardIcon';
+import CardsIcon from '@/components/CardsIcon';
 import FaceGraphic from '@/components/FaceGraphic';
 import GlanceIcon from '@/components/GlanceIcon';
+import HomeIcon from '@/components/HomeIcon';
 import IdentityIcon from '@/components/IdentityIcon';
 import ReviewIcon from '@/components/ReviewIcon';
 import ShieldGraphic from '@/components/ShieldGraphic';
+import TransactionsIcon from '@/components/TransactionsIcon';
 import React, { useRef, useState } from 'react';
 import {
   FlatList,
@@ -18,7 +21,6 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import BackIcon from '../components/BackIcon';
 import CardItem, { CardData } from '../components/CardItem';
 import { CARD_GAP, CARD_WIDTH, yourCardsStyles as s } from '../styles/yourCardsStyles';
-import { colors } from '../theme/colors';
 
 const CARDS: CardData[] = [
   {
@@ -153,15 +155,15 @@ export default function YourCardsScreen() {
         {/* Bottom tab bar */}
         <View style={s.tabBar}>
           <Pressable style={s.tabItem}>
-            <Text style={{ fontSize: 18 }}>🏠</Text>
+            <HomeIcon size={24} />
             <Text style={s.tabLabel}>Home</Text>
           </Pressable>
           <Pressable style={s.tabItem}>
-            <Text style={{ fontSize: 18, color: colors.primary }}>💳</Text>
+            <CardsIcon size={24} />
             <Text style={[s.tabLabel, s.tabLabelActive]}>Cards</Text>
           </Pressable>
           <Pressable style={s.tabItem}>
-            <Text style={{ fontSize: 18 }}>🧾</Text>
+            <TransactionsIcon size={24} />
             <Text style={s.tabLabel}>Transactions</Text>
           </Pressable>
         </View>
