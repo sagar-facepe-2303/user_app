@@ -1,6 +1,7 @@
 import CvvInfoIcon from '@/components/CvvInfoIcon';
 import PciDssBadge from '@/components/PciDssBadge';
 import ShieldIcon from '@/components/ShieldIcon';
+import { router } from 'expo-router';
 import React from 'react';
 import {
   Modal,
@@ -82,7 +83,13 @@ export default function AddCardModal({ visible, onClose }: Props) {
               </Text>
             </View>
 
-            <Pressable style={styles.button}>
+            <Pressable
+              style={styles.button}
+              onPress={() => {
+                onClose();
+                router.push('/card-processing');
+              }}
+            >
               <Text style={styles.buttonText}>Link Card</Text>
             </Pressable>
         </View>
