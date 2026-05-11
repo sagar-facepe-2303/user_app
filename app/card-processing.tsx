@@ -1,5 +1,6 @@
 import BackIcon from '@/components/BackIcon';
 import FetchingShieldIcon from '@/components/FetchingShieldIcon';
+import LoadingCircle from '@/components/LoadingCircle';
 import PciDssBadge from '@/components/PciDssBadge';
 import ProcessingCardIcon from '@/components/ProcessingCardIcon';
 import cardProcessingData from '@/data/cardProcessing.json';
@@ -24,9 +25,9 @@ export default function CardProcessingScreen() {
       <View style={styles.shieldWrap}>
         <FetchingShieldIcon width={220} height={270} />
         <View style={styles.circleAbs}>
-          <View style={styles.circle}>
+          <LoadingCircle size={140} strokeWidth={3.818} color="#5F15EE" trackColor="#E5E5E5">
             <ProcessingCardIcon size={80} />
-          </View>
+          </LoadingCircle>
         </View>
       </View>
 
