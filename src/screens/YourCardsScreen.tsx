@@ -10,13 +10,13 @@ import ShieldGraphic from '@/components/ShieldGraphic';
 import TransactionsIcon from '@/components/TransactionsIcon';
 import React, { useRef, useState } from 'react';
 import {
-    FlatList,
-    NativeScrollEvent,
-    NativeSyntheticEvent,
-    Pressable,
-    ScrollView,
-    Text,
-    View,
+  FlatList,
+  NativeScrollEvent,
+  NativeSyntheticEvent,
+  Pressable,
+  ScrollView,
+  Text,
+  View,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import BackIcon from '../components/BackIcon';
@@ -29,12 +29,17 @@ const CARDS: CardData[] = cardsData.cards;
 export default function YourCardsScreen() {
   const [index, setIndex] = useState(0);
   const [showAddCardModal, setShowAddCardModal] = useState(false);
+  const [cards, setCards] = useState<CardData[]>(CARDS);
   const listRef = useRef<FlatList<CardData>>(null);
 
   const onScroll = (e: NativeSyntheticEvent<NativeScrollEvent>) => {
     const x = e.nativeEvent.contentOffset.x;
     const i = Math.round(x / (CARD_WIDTH + CARD_GAP));
     if (i !== index) setIndex(i);
+  };
+
+  const handleRemoveCard = (id: string) => {
+    setCards((prev) => prev.filter((card) => card.id !== id));
   };
 
   return (
@@ -49,13 +54,15 @@ export default function YourCardsScreen() {
               </Pressable>
               <Text style={s.title}>Your cards</Text>
             </View>
-            <Text style={[s.subtitle, { marginLeft: 44 }]}>Managing 3 active cards</Text>
+            <Text style={[s.subtitle, { marginLeft: 44 }]}>
+              Managing {cards.length} active card{cards.length !== 1 ? 's' : ''}
+            </Text>
           </View>
 
           {/* Card carousel */}
           <FlatList
             ref={listRef}
-            data={CARDS}
+            data={cards}
             keyExtractor={(item) => item.id}
             horizontal
             showsHorizontalScrollIndicator={false}
@@ -65,12 +72,12 @@ export default function YourCardsScreen() {
             scrollEventThrottle={16}
             contentContainerStyle={s.carouselContent}
             ItemSeparatorComponent={() => <View style={{ width: CARD_GAP }} />}
-            renderItem={({ item }) => <CardItem data={item} />}
+            renderItem={({ item }) => <CardItem data={item} onRemove={handleRemoveCard} />}
           />
 
           {/* Dots */}
           <View style={s.dots}>
-            {CARDS.map((_, i) => (
+            {cards.map((_, i) => (
               <View key={i} style={[s.dot, i === index && s.dotActive]} />
             ))}
           </View>

@@ -1,7 +1,7 @@
 import EyeIcon from '@/components/EyeIcon';
 import { LinearGradient } from 'expo-linear-gradient';
-import React from 'react';
-import { Text, View } from 'react-native';
+import React, { useState } from 'react';
+import { Pressable, Text, View } from 'react-native';
 import { yourCardsStyles as s } from '../styles/yourCardsStyles';
 
 export type CardData = {
@@ -16,7 +16,14 @@ export type CardData = {
   messageBold: string;
 };
 
-export default function CardItem({ data }: { data: CardData }) {
+type Props = {
+  data: CardData;
+  onRemove?: (id: string) => void;
+};
+
+export default function CardItem({ data, onRemove }: Props) {
+  const [amountVisible, setAmountVisible] = useState(false);
+
   return (
     <View style={s.cardWrapper}>
       {/* Top gradient section */}
@@ -45,8 +52,10 @@ export default function CardItem({ data }: { data: CardData }) {
         <View style={s.amountRow}>
           <View>
             <View style={s.amountLeft}>
-              <Text style={s.amount}>{data.amount}</Text>
-              <EyeIcon size={18} />
+              <Text style={s.amount}>{amountVisible ? data.amount : '••••••'}</Text>
+              <Pressable onPress={() => setAmountVisible(!amountVisible)} hitSlop={8}>
+                <EyeIcon size={18} />
+              </Pressable>
             </View>
             <Text style={s.subLabel}>Utilised this month</Text>
           </View>
@@ -64,7 +73,9 @@ export default function CardItem({ data }: { data: CardData }) {
           <Text style={s.cardMsgBold}>{data.messageBold}</Text>
           {' secure payments.'}
         </Text>
-        <Text style={s.remove}>Remove</Text>
+        <Pressable onPress={() => onRemove?.(data.id)}>
+          <Text style={s.remove}>Remove</Text>
+        </Pressable>
       </View>
     </View>
   );
