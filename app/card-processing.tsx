@@ -1,8 +1,8 @@
 import BackIcon from '@/components/BackIcon';
 import FetchingShieldIcon from '@/components/FetchingShieldIcon';
+import FlippingCard from '@/components/FlippingCard';
 import LoadingCircle from '@/components/LoadingCircle';
 import PciDssBadge from '@/components/PciDssBadge';
-import ProcessingCardIcon from '@/components/ProcessingCardIcon';
 import cardProcessingData from '@/data/cardProcessing.json';
 import { router } from 'expo-router';
 import React from 'react';
@@ -26,7 +26,7 @@ export default function CardProcessingScreen() {
         <FetchingShieldIcon width={220} height={270} />
         <View style={styles.circleAbs}>
           <LoadingCircle size={140} strokeWidth={3.818} color="#5F15EE" trackColor="#E5E5E5">
-            <ProcessingCardIcon size={80} />
+            <FlippingCard size={80} />
           </LoadingCircle>
         </View>
       </View>
