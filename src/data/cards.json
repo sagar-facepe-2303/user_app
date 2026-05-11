@@ -32,6 +32,17 @@
       "validThru": "11/28",
       "message": "You've successfully made over ",
       "messageBold": "2k+"
+    },
+    {
+      "id": "4",
+      "brand": "Via Master",
+      "last4": "786",
+      "label": "Travel",
+      "date": "18 Dec 2025",
+      "amount": "$ 305.10",
+      "validThru": "11/28",
+      "message": "You've successfully made over ",
+      "messageBold": "2k+"
     }
   ]
 }
