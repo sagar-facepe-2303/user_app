@@ -1,0 +1,19 @@
+{
+  "title": "Fill your card details",
+  "fields": {
+    "cardNumber": {
+      "label": "Card Number",
+      "placeholder": "1234 5678 9012 3456"
+    },
+    "expiryDate": {
+      "label": "Expiry Date",
+      "placeholder": "MM/YY"
+    },
+    "cvv": {
+      "label": "CVV",
+      "placeholder": "123"
+    }
+  },
+  "securityNote": "Bank-level encryption keeps your data hidden.",
+  "submitButton": "Link Card"
+}

@@ -1,6 +1,7 @@
 import CvvInfoIcon from '@/components/CvvInfoIcon';
 import PciDssBadge from '@/components/PciDssBadge';
 import ShieldIcon from '@/components/ShieldIcon';
+import addCardForm from '@/data/addCardForm.json';
 import { router } from 'expo-router';
 import React from 'react';
 import {
@@ -34,14 +35,14 @@ export default function AddCardModal({ visible, onClose }: Props) {
 
             <PciDssBadge />
 
-            <Text style={styles.title}>Fill your card details </Text>
+            <Text style={styles.title}>{addCardForm.title}</Text>
 
             <View style={styles.form}>
               <View style={styles.inputGroup}>
-                <Text style={styles.label}>Card Number</Text>
+                <Text style={styles.label}>{addCardForm.fields.cardNumber.label}</Text>
                 <TextInput
                   style={styles.input}
-                  placeholder="1234 5678 9012 3456"
+                  placeholder={addCardForm.fields.cardNumber.placeholder}
                   placeholderTextColor="#A0A0A0"
                   keyboardType="number-pad"
                 />
@@ -49,21 +50,21 @@ export default function AddCardModal({ visible, onClose }: Props) {
 
               <View style={styles.row}>
                 <View style={[styles.inputGroup, styles.half]}>
-                  <Text style={styles.label}>Expiry Date</Text>
+                  <Text style={styles.label}>{addCardForm.fields.expiryDate.label}</Text>
                   <TextInput
                     style={styles.input}
-                    placeholder="MM/YY"
+                    placeholder={addCardForm.fields.expiryDate.placeholder}
                     placeholderTextColor="#A0A0A0"
                     keyboardType="number-pad"
                   />
                 </View>
 
                 <View style={[styles.inputGroup, styles.half]}>
-                  <Text style={styles.label}>CVV</Text>
+                  <Text style={styles.label}>{addCardForm.fields.cvv.label}</Text>
                   <View style={styles.inputWithIcon}>
                     <TextInput
                       style={styles.cvvInput}
-                      placeholder="123"
+                      placeholder={addCardForm.fields.cvv.placeholder}
                       placeholderTextColor="#A0A0A0"
                       keyboardType="number-pad"
                       secureTextEntry
@@ -79,7 +80,7 @@ export default function AddCardModal({ visible, onClose }: Props) {
             <View style={styles.securityBox}>
               <ShieldIcon size={24} />
               <Text style={styles.securityBoxText}>
-                Bank-level encryption keeps your data hidden.
+                {addCardForm.securityNote}
               </Text>
             </View>
 
@@ -90,7 +91,7 @@ export default function AddCardModal({ visible, onClose }: Props) {
                 router.push('/card-processing');
               }}
             >
-              <Text style={styles.buttonText}>Link Card</Text>
+              <Text style={styles.buttonText}>{addCardForm.submitButton}</Text>
             </Pressable>
         </View>
       </View>

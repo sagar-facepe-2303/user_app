@@ -1,11 +1,12 @@
+import BackIcon from '@/components/BackIcon';
 import FetchingShieldIcon from '@/components/FetchingShieldIcon';
 import PciDssBadge from '@/components/PciDssBadge';
 import ProcessingCardIcon from '@/components/ProcessingCardIcon';
+import cardProcessingData from '@/data/cardProcessing.json';
 import { router } from 'expo-router';
 import React from 'react';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import BackIcon from '@/components/BackIcon';
 
 export default function CardProcessingScreen() {
   return (
@@ -30,17 +31,15 @@ export default function CardProcessingScreen() {
       </View>
 
       <View style={styles.textBlock}>
-        <Text style={styles.fetchingText}>FETCHING DETAILS</Text>
-        <Text style={styles.title}>Adding your card</Text>
-        <Text style={styles.subtitle}>connecting securely to your server</Text>
+        <Text style={styles.fetchingText}>{cardProcessingData.status}</Text>
+        <Text style={styles.title}>{cardProcessingData.title}</Text>
+        <Text style={styles.subtitle}>{cardProcessingData.subtitle}</Text>
       </View>
 
       <View style={styles.footer}>
-        <Text style={styles.securedBy}>Secured By</Text>
-        <Text style={styles.stripe}>stripe</Text>
-        <Text style={styles.footerNote}>
-          This connection is fully PCI-DSS Level 1 compliant, meeting the highest security standards in the global payments industry.
-        </Text>
+        <Text style={styles.securedBy}>{cardProcessingData.securedBy.label}</Text>
+        <Text style={styles.stripe}>{cardProcessingData.securedBy.provider}</Text>
+        <Text style={styles.footerNote}>{cardProcessingData.securedBy.note}</Text>
       </View>
     </SafeAreaView>
   );

@@ -1,0 +1,10 @@
+{
+  "status": "FETCHING DETAILS",
+  "title": "Adding your card",
+  "subtitle": "connecting securely to your server",
+  "securedBy": {
+    "label": "Secured By",
+    "provider": "stripe",
+    "note": "This connection is fully PCI-DSS Level 1 compliant, meeting the highest security standards in the global payments industry."
+  }
+}
