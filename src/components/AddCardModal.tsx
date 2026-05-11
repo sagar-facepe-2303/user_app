@@ -5,11 +5,16 @@ import addCardForm from '@/data/addCardForm.json';
 import { router } from 'expo-router';
 import React from 'react';
 import {
+  Keyboard,
+  KeyboardAvoidingView,
   Modal,
+  Platform,
   Pressable,
+  ScrollView,
   StyleSheet,
   Text,
   TextInput,
+  TouchableWithoutFeedback,
   View,
 } from 'react-native';
 
@@ -26,13 +31,25 @@ export default function AddCardModal({ visible, onClose }: Props) {
       transparent
       onRequestClose={onClose}
     >
-      <View style={styles.overlay}>
+      <KeyboardAvoidingView
+        style={styles.overlay}
+        behavior={Platform.OS === 'ios' ? 'padding' : undefined}
+      >
         <Pressable style={styles.backdrop} onPress={onClose} />
         <View style={styles.content}>
-            <Pressable style={styles.handle} onPress={onClose}>
-              <View style={styles.handleBar} />
-            </Pressable>
-
+          <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
+            <View>
+              <Pressable style={styles.handle} onPress={onClose}>
+                <View style={styles.handleBar} />
+              </Pressable>
+            </View>
+          </TouchableWithoutFeedback>
+          <ScrollView
+            keyboardShouldPersistTaps="handled"
+            showsVerticalScrollIndicator={false}
+            contentContainerStyle={styles.scrollContent}
+            bounces={false}
+          >
             <PciDssBadge />
 
             <Text style={styles.title}>{addCardForm.title}</Text>
@@ -87,14 +104,16 @@ export default function AddCardModal({ visible, onClose }: Props) {
             <Pressable
               style={styles.button}
               onPress={() => {
+                Keyboard.dismiss();
                 onClose();
                 router.push('/card-processing');
               }}
             >
               <Text style={styles.buttonText}>{addCardForm.submitButton}</Text>
             </Pressable>
+          </ScrollView>
         </View>
-      </View>
+      </KeyboardAvoidingView>
     </Modal>
   );
 }
@@ -115,6 +134,10 @@ const styles = StyleSheet.create({
     paddingHorizontal: 24,
     paddingTop: 12,
     paddingBottom: 32,
+    maxHeight: '92%',
+  },
+  scrollContent: {
+    paddingBottom: 16,
   },
   handle: {
     alignItems: 'center',
