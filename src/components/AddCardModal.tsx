@@ -188,12 +188,11 @@ const styles = StyleSheet.create({
   },
   inputWithIcon: {
     flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'flex-start',
-    gap: 29,
+    alignItems: 'center',
     alignSelf: 'stretch',
-    paddingVertical: 15,
+    paddingVertical: 0,
     paddingHorizontal: 8,
+    paddingRight: 36,
     borderRadius: 4,
     borderWidth: 1,
     borderColor: '#CBD2D6',
@@ -203,8 +202,10 @@ const styles = StyleSheet.create({
   cvvIcon: {
     position: 'absolute',
     right: 12,
-    top: '50%',
-    marginTop: -9,
+    top: 0,
+    bottom: 0,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   row: {
     flexDirection: 'row',
