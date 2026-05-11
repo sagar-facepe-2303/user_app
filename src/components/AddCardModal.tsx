@@ -183,7 +183,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   button: {
-    width: 342,
+    width: "100%",
     height: 52,
     paddingVertical: 12,
     justifyContent: 'center',
@@ -193,7 +193,7 @@ const styles = StyleSheet.create({
     marginBottom: 16,
   },
   securityBox: {
-    width: 338,
+    width: "100%",
     padding: 16,
     flexDirection: 'row',
     alignItems: 'center',

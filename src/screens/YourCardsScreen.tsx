@@ -10,54 +10,21 @@ import ShieldGraphic from '@/components/ShieldGraphic';
 import TransactionsIcon from '@/components/TransactionsIcon';
 import React, { useRef, useState } from 'react';
 import {
-  FlatList,
-  NativeScrollEvent,
-  NativeSyntheticEvent,
-  Pressable,
-  ScrollView,
-  Text,
-  View,
+    FlatList,
+    NativeScrollEvent,
+    NativeSyntheticEvent,
+    Pressable,
+    ScrollView,
+    Text,
+    View,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import BackIcon from '../components/BackIcon';
 import CardItem, { CardData } from '../components/CardItem';
+import cardsData from '../data/cards.json';
 import { CARD_GAP, CARD_WIDTH, yourCardsStyles as s } from '../styles/yourCardsStyles';
 
-const CARDS: CardData[] = [
-  {
-    id: '1',
-    brand: 'Via Discover it',
-    last4: '123',
-    label: 'Default',
-    date: '06 Feb 2026',
-    amount: '$ 150.00',
-    validThru: '15/02',
-    message: "You've successfully made over ",
-    messageBold: '1k+',
-  },
-  {
-    id: '2',
-    brand: 'Via Visa',
-    last4: '456',
-    label: 'Backup',
-    date: '02 Jan 2026',
-    amount: '$ 82.40',
-    validThru: '09/27',
-    message: "You've successfully made over ",
-    messageBold: '500+',
-  },
-  {
-    id: '3',
-    brand: 'Via Master',
-    last4: '789',
-    label: 'Travel',
-    date: '18 Dec 2025',
-    amount: '$ 305.10',
-    validThru: '11/28',
-    message: "You've successfully made over ",
-    messageBold: '2k+',
-  },
-];
+const CARDS: CardData[] = cardsData.cards;
 
 export default function YourCardsScreen() {
   const [index, setIndex] = useState(0);
